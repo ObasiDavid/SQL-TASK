@@ -1,4 +1,4 @@
------Table Script:
+----- Create Table Script -----------
 create table amazon (txnmonth varchar(50),dept varchar(50),txnamount int);
 
 
@@ -9,7 +9,7 @@ insert into amazon values('Jan','Clothes',700);
 insert into amazon values('Feb','Clothes',500);
 insert into amazon values('Mar','Clothes',200);
 
--------------Answer-----------------------------
+-------------Answer TO Question-----------------------------
 select coalesce(dept,'-') dept,coalesce(txnmonth,concat('txnmonth ',dept)) txmnt,
 sum(txnamount) amt from [dbo].[amazon]
 group by rollup(dept,txnmonth)
